@@ -16,10 +16,6 @@ export class DirectoryComponent implements OnInit {
   constructor(private logger: LoggingService,private dataService: DataService) {
   }
 
-  logIt() {
-    this.logger.log();
-  }
-
   ngOnInit() {
     // this.dataService.fetchData().subscribe(
     //   (data) => this.people = data
@@ -28,12 +24,17 @@ export class DirectoryComponent implements OnInit {
     this.fbGetData();
   }
 
-  // 连接数据库并添加数据
+  // 连接数据库并获取数据
   fbGetData() {
     // localhost:4200/directory
     firebase.database().ref('/').on('child_added',(snapshot) => {
       this.people.push(snapshot.val());
     });
+  }
+
+  // 向数据库传入数据
+  fbPostData(name,color,phone) {
+    firebase.database().ref('/').push({name:name,color:color,phone:phone});
   }
 
 }
