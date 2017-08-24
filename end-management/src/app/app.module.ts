@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 
+import { AngularFireModule } from 'angularfire2';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
@@ -27,7 +29,8 @@ import { DataService } from './data.service';
     routing,
     FormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule
   ],
   providers: [LoggingService,DataService],
   bootstrap: [AppComponent]

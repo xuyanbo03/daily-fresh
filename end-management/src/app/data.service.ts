@@ -9,7 +9,7 @@ export class DataService {
 
   // 请求本地数据,处理对应数据
   fetchData() {
-    return this.http.get('../../public/people.json')
+    return this.http.get('https://ng-management-8da57.firebaseio.com/.json')
       .map((res) => res.json());
   }
 
