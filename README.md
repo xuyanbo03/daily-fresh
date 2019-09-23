@@ -5,8 +5,10 @@
 提取码：2n5c 
 
 ## 文件目录
-data压缩文件中含 训练集training 、 验证集validation 和 标签说明monkey_labels.txt 。
+data压缩文件中含训练集training,验证集validation和标签说明monkey_labels.txt.
+
 [ipynb](https://github.com/xuyanbo03/monkey_classification/)
+
 [py code](https://github.com/xuyanbo03/monkey_classification)
 
 ## 模型
