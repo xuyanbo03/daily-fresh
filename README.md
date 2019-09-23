@@ -7,9 +7,9 @@
 ## 文件目录
 data压缩文件中含训练集training,验证集validation和标签说明monkey_labels.txt.
 
-[ipynb](https://github.com/xuyanbo03/monkey_classification/)
+[ipynb](https://github.com/xuyanbo03/monkey_classification/monkey_classification.ipynb)
 
-[py code](https://github.com/xuyanbo03/monkey_classification)
+[py code](https://github.com/xuyanbo03/monkey_classification/monkey_classification.py)
 
 ## 模型
 使用了ResNet50训练十种类型的猴子，用imageNet作为预训练模型，并且在原有数据上做了一定的增广，训练100轮，可达到99%，验证集为80%以上。
