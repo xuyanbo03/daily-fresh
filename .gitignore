@@ -87,8 +87,8 @@ venv.bak/
 sftp-config.json
  
 # Package control specific files Package
-Control.last-run
-Control.ca-list
-Control.ca-bundle
-Control.system-ca-bundle
-GitHub.sublime-settings
+# Control.last-run
+# Control.ca-list
+# Control.ca-bundle
+# Control.system-ca-bundle
+# GitHub.sublime-settings
