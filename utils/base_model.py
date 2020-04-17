@@ -11,5 +11,5 @@ class BaseModel(models.Model):
     update_time = models.DateTimeField(auto_now=True, verbose_name='更新时间')
     is_delete = models.BooleanField(default=False, verbose_name='删除标记')
 
-    class Mete:
+    class Meta:
         abstract = True  # 说明是一个抽象模型类

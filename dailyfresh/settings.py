@@ -27,6 +27,8 @@ SECRET_KEY = 'k5ejnp@#tu7oh-*-_-q%ymc3d%ilugi95i8aha=f^couob$5*+'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+MYSQL_HOST = '192.168.123.130'
+REDIS_HOST = 'redis://192.168.123.130:6379/'
 
 # Application definition
 
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tinymce',
     'user',  # 用户模块
     'cart',  # 购物车模块
     'goods',  # 商品模块
@@ -82,7 +85,7 @@ DATABASES = {
         'NAME': 'dailyfresh',
         'USER': 'root',
         'PASSWORD': 'mysql',
-        'HOST': '192.168.123.130',
+        'HOST': MYSQL_HOST,
         'PORT': 3306,
     }
 }
@@ -150,7 +153,7 @@ EMAIL_FROM = '天天生鲜<xuyanbo0301@163.com>'
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://192.168.123.130:6379/9",
+        "LOCATION": REDIS_HOST + "9",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
@@ -163,3 +166,12 @@ SESSION_CACHE_ALIAS = "default"
 
 # 配置登录url地址
 LOGIN_URL = '/user/login'  # 默认为/accounts/login
+
+# 设置Django文件存储类
+DEFAULT_FILE_STORAGE = 'utils.fdfs.storage.FDFSStorage'
+
+# 设置fdfs使用的client.conf文件路径
+FDFS_CLIENT_CONF = './utils/fdfs/client.conf'
+
+# 设置fdfs存储服务器上nginx的IP和端口号
+FDFS_URL = 'http://192.168.123.130:8888/'
