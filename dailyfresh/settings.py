@@ -28,8 +28,17 @@ SECRET_KEY = 'k5ejnp@#tu7oh-*-_-q%ymc3d%ilugi95i8aha=f^couob$5*+'
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
+
+# 自定义参数
 MYSQL_HOST = '192.168.123.130'
+MYSQL_USER = 'root'
+MYSQL_PASSWORD = 'mysql'
 REDIS_HOST = 'redis://192.168.123.130:6379/'
+SMTP_EMAIL_HOST_PASSWORD = 'XXXXXXXXXXXXXXXX'  # 16位邮箱授权码
+NGINX_FDFS_URL = 'http://192.168.123.130:8888/'
+ALIPAY_APPID = "2016090800464054"
+ALIPAY_DEBUG = True
+ALIPAY_PAY_URL = 'https://openapi.alipaydev.com/gateway.do?'
 
 # Application definition
 
@@ -85,8 +94,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'dailyfresh',
-        'USER': 'root',
-        'PASSWORD': 'mysql',
+        'USER': MYSQL_USER,
+        'PASSWORD': MYSQL_PASSWORD,
         'HOST': MYSQL_HOST,
         'PORT': 3306,
     }
@@ -148,7 +157,7 @@ EMAIL_PORT = 25
 # 发送邮件的邮箱
 EMAIL_HOST_USER = 'xuyanbo0301@163.com'
 # 在邮箱中设置的客户端授权密码
-EMAIL_HOST_PASSWORD = 'POGCJYCFJQVNYBKG'
+EMAIL_HOST_PASSWORD = SMTP_EMAIL_HOST_PASSWORD
 # 收件人看到的发件人
 EMAIL_FROM = '天天生鲜<xuyanbo0301@163.com>'
 
@@ -177,7 +186,7 @@ DEFAULT_FILE_STORAGE = 'utils.fdfs.storage.FDFSStorage'
 FDFS_CLIENT_CONF = './utils/fdfs/client.conf'
 
 # 设置fdfs存储服务器上nginx的IP和端口号
-FDFS_URL = 'http://192.168.123.130:8888/'
+FDFS_URL = NGINX_FDFS_URL
 
 # 全文检索框架的配置
 HAYSTACK_CONNECTIONS = {

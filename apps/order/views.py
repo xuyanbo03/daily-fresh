@@ -358,13 +358,13 @@ class OrderPayView(View):
         # 业务处理:使用python sdk调用支付宝的支付接口
         # 初始化
         alipay = AliPay(
-            appid="2016090800464054",  # 应用id
+            appid=settings.ALIPAY_APPID,  # 应用id
             app_notify_url=None,  # 默认回调url
             app_private_key_string=os.path.join(settings.BASE_DIR, 'apps/order/app_private_key.pem'),
             # 支付宝的公钥，验证支付宝回传消息使用，不是你自己的公钥
             alipay_public_key_string=os.path.join(settings.BASE_DIR, 'apps/order/alipay_public_key.pem'),
             sign_type="RSA2",  # RSA 或者 RSA2
-            debug=True  # 默认False
+            debug=settings.ALIPAY_DEBUG  # 默认False
         )
 
         # 调用支付接口
@@ -379,7 +379,7 @@ class OrderPayView(View):
         )
 
         # 返回应答
-        pay_url = 'https://openapi.alipaydev.com/gateway.do?' + order_string
+        pay_url = settings.ALIPAY_PAY_URL + order_string
         return JsonResponse({'res': 3, 'pay_url': pay_url})
 
 
@@ -415,13 +415,13 @@ class CheckPayView(View):
         # 业务处理:使用python sdk调用支付宝的支付接口
         # 初始化
         alipay = AliPay(
-            appid="2016090800464054",  # 应用id
+            appid=settings.ALIPAY_APPID,  # 应用id
             app_notify_url=None,  # 默认回调url
             app_private_key_string=os.path.join(settings.BASE_DIR, 'apps/order/app_private_key.pem'),
             # 支付宝的公钥，验证支付宝回传消息使用，不是你自己的公钥,
             alipay_public_key_string=os.path.join(settings.BASE_DIR, 'apps/order/alipay_public_key.pem'),
             sign_type="RSA2",  # RSA 或者 RSA2
-            debug=True  # 默认False
+            debug=settings.ALIPAY_DEBUG  # 默认False
         )
 
         # 调用支付宝的交易查询接口
