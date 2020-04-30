@@ -20,12 +20,14 @@ from django.urls import path, include, re_path
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
     # url(r'^tinymce/', include('tinymce.urls')),  # 富文本编辑器
+    # url(r'^search', include('haystack.urls')),  # 全文检索框架
     # url(r'^user/', include(('user.urls', 'user'), namespace='user')),  # 用户模块
     # url(r'^cart/', include(('cart.urls', 'cart'), namespace='cart')),  # 购物车模块
     # url(r'^order/', include(('order.urls', 'order'), namespace='order')),  # 订单模块
     # url(r'^', include(('goods.urls', 'goods'), namespace='goods')),  # 商品模块
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),  # 富文本编辑器
+    path('search', include('haystack.urls')),  # 全文检索框架
     path('user/', include(('user.urls', 'user'), namespace='user')),  # 用户模块
     path('cart/', include(('cart.urls', 'cart'), namespace='cart')),  # 购物车模块
     path('order/', include(('order.urls', 'order'), namespace='order')),  # 订单模块

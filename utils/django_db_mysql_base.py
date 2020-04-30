@@ -1,4 +1,6 @@
 """
+注释38、39行，取消版本验证
+
 MySQL database backend for Django.
 
 Requires mysqlclient: https://pypi.org/project/mysqlclient/
